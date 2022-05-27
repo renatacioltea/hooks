@@ -1,0 +1,9 @@
+.container {
+  width: 200;
+  color: red;
+}
+
+.span {
+  color: blue;
+  background-color: red;
+}

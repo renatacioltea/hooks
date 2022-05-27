@@ -1,0 +1,21 @@
+.modalPosition {
+  padding: 50px 50px;
+  position: absolute;
+  width: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: papayawhip;
+  border: 2px solid #000;
+  box-shadow: 24;
+}
+
+.modalContent {
+  padding: 10px 45px;
+  width: 100%;
+}
+
+.img {
+  margin: 0 auto;
+  width: 100%;
+}
