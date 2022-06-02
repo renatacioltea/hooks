@@ -1,21 +1,21 @@
-import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
-import { Typography, TextField, Button } from '@mui/material';
+import { Typography, TextField, Button } from "@mui/material";
 
-import Navigation from '../../components/Navigation';
+import Navigation from "../../components/Navigation";
 
 function CartoonForm() {
-  const [formData, setFormData] = useState({ name: '', description: '' });
+  const [formData, setFormData] = useState({ name: "", description: "" });
 
-  const [title, setTitle] = useState('Create Cartoons');
+  const [title, setTitle] = useState("Create Cartoons");
 
   const location = useLocation();
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (location.pathname !== '/edit-cartoon') {
+    if (location.pathname !== "/cartoons/edit-cartoon") {
       const newTitle = `Create Cartoon - ${formData.name}`;
 
       setTitle(newTitle);
@@ -23,11 +23,11 @@ function CartoonForm() {
   }, [formData.name, location.pathname]);
 
   useEffect(() => {
-    if (location.pathname === '/edit-cartoon') {
-      setTitle('Edit Cartoon');
-      const cartoon = JSON.parse(window.localStorage.getItem('currentCartoon'));
+    if (location.pathname === "/cartoons/edit-cartoon") {
+      setTitle("Edit Cartoon");
+      const cartoon = JSON.parse(window.localStorage.getItem("currentCartoon"));
       if (cartoon === null) {
-        navigate('/cartoons');
+        navigate("/cartoons");
       } else {
         setFormData({ name: cartoon.title, description: cartoon.description });
       }
@@ -36,14 +36,14 @@ function CartoonForm() {
 
   useEffect(() => {
     return function CleanUp() {
-      window.localStorage.removeItem('currentCartoon');
+      window.localStorage.removeItem("currentCartoon");
     };
   }, []);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    setFormData({ name: '', description: '' });
+    setFormData({ name: "", description: "" });
   };
 
   const handleFormChange = (e) => {
@@ -57,14 +57,18 @@ function CartoonForm() {
   return (
     <>
       <Navigation />
-      <Typography variant="h1" gutterBottom style={{ marginTop: 100, textAlign: 'center' }}>
+      <Typography
+        variant="h1"
+        gutterBottom
+        style={{ marginTop: 100, textAlign: "center" }}
+      >
         {title}
       </Typography>
       <form
         variant="standard"
-        style={{ textAlign: 'center' }}
+        style={{ textAlign: "center" }}
         sx={{
-          '& > :not(style)': { m: 2, width: '25ch' },
+          "& > :not(style)": { m: 2, width: "25ch" },
         }}
       >
         <TextField

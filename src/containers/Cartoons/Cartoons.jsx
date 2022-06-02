@@ -1,43 +1,43 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { Modal, Box, Typography } from '@mui/material';
-import Grid from '@mui/material/Grid';
-import Navigation from '../../components/Navigation';
+import { Modal, Box, Typography } from "@mui/material";
+import Grid from "@mui/material/Grid";
+import Navigation from "../../components/Navigation";
 
-import CartoonCard from './CartoonCard';
-import './cartoonsStyle.css';
+import CartoonCard from "./CartoonCard";
+import "./cartoonsStyle.css";
 
 const cartoons = [
   {
-    name: 'Sailor Moon',
+    name: "Sailor Moon",
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac auctor augue mauris augue neque gravida in fermentum et. Arcu cursus euismod quis viverra nibh cras pulvinar. Id aliquet risus feugiat in. Accumsan lacus vel facilisis volutpat.',
-    image: 'https://picsum.photos/200',
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac auctor augue mauris augue neque gravida in fermentum et. Arcu cursus euismod quis viverra nibh cras pulvinar. Id aliquet risus feugiat in. Accumsan lacus vel facilisis volutpat.",
+    image: "https://picsum.photos/200",
   },
   {
-    name: 'Tom & Jerry',
+    name: "Tom & Jerry",
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac auctor augue mauris augue neque gravida in fermentum et. Arcu cursus euismod quis viverra nibh cras pulvinar. Id aliquet risus feugiat in. Accumsan lacus vel facilisis volutpat.',
-    image: 'https://picsum.photos/200',
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac auctor augue mauris augue neque gravida in fermentum et. Arcu cursus euismod quis viverra nibh cras pulvinar. Id aliquet risus feugiat in. Accumsan lacus vel facilisis volutpat.",
+    image: "https://picsum.photos/200",
   },
   {
-    name: 'Curaj-Caine Fricos',
+    name: "Curaj-Caine Fricos",
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac auctor augue mauris augue neque gravida in fermentum et. Arcu cursus euismod quis viverra nibh cras pulvinar. Id aliquet risus feugiat in. Accumsan lacus vel facilisis volutpat.',
-    image: 'https://picsum.photos/200',
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac auctor augue mauris augue neque gravida in fermentum et. Arcu cursus euismod quis viverra nibh cras pulvinar. Id aliquet risus feugiat in. Accumsan lacus vel facilisis volutpat.",
+    image: "https://picsum.photos/200",
   },
   {
-    name: 'Rick and Morty',
+    name: "Rick and Morty",
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac auctor augue mauris augue neque gravida in fermentum et. Arcu cursus euismod quis viverra nibh cras pulvinar. Id aliquet risus feugiat in. Accumsan lacus vel facilisis volutpat.',
-    image: 'https://picsum.photos/200',
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac auctor augue mauris augue neque gravida in fermentum et. Arcu cursus euismod quis viverra nibh cras pulvinar. Id aliquet risus feugiat in. Accumsan lacus vel facilisis volutpat.",
+    image: "https://picsum.photos/200",
   },
   {
-    name: 'Cow and chicken',
+    name: "Cow and chicken",
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac auctor augue mauris augue neque gravida in fermentum et. Arcu cursus euismod quis viverra nibh cras pulvinar. Id aliquet risus feugiat in. Accumsan lacus vel facilisis volutpat.',
-    image: 'https://picsum.photos/200',
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac auctor augue mauris augue neque gravida in fermentum et. Arcu cursus euismod quis viverra nibh cras pulvinar. Id aliquet risus feugiat in. Accumsan lacus vel facilisis volutpat.",
+    image: "https://picsum.photos/200",
   },
 ];
 
@@ -59,10 +59,10 @@ function Cartoons() {
 
   const handleEditForm = (title, image, description) => {
     window.localStorage.setItem(
-      'currentCartoon',
-      JSON.stringify({ title: title, image: image, description: description }),
+      "currentCartoon",
+      JSON.stringify({ title: title, image: image, description: description })
     );
-    navigate('/edit-cartoon');
+    navigate("/cartoons/edit-cartoon");
   };
 
   return (
@@ -93,7 +93,12 @@ function Cartoons() {
         aria-describedby="modal-modal-description"
       >
         <Box className="modalPosition">
-          <Typography id="modal-modal-title" variant="h6" component="h2" className="modalContent">
+          <Typography
+            id="modal-modal-title"
+            variant="h6"
+            component="h2"
+            className="modalContent"
+          >
             {currentCartoon.title}
           </Typography>
           <img src={currentCartoon.image} className="modalContent" />
